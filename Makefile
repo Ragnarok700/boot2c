@@ -1,5 +1,5 @@
 AS = as
-CC = clang
+CC = gcc
 LD = ld
 OBJCOPY = objcopy
 
@@ -12,7 +12,7 @@ OBJCOPY = objcopy
 
 ASFLAGS = -march=i386 --32
 CFLAGS = -ffreestanding -m16 -march=i386 -Wall -Wextra -pedantic
-LDFLAGS = -Tlinker.ld -nostdlib -m elf_i386
+LDFLAGS = -Tlinker.ld -nostdlib -m elf32-i386
 
 OBJDIR = build
 
@@ -60,4 +60,4 @@ bochs: all ensure-app disk
 	bochs -f misc/bochsrc.txt
 
 clean:
-	rm -rf build/*
+	rd /S /Q build\.
